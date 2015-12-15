@@ -580,7 +580,18 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
             else:
                 return 'c' #otherwise collude
     
+    elif player == 20:
+        if getting_team_name:
+            return "Gavin's unpredictable backstabber"
+        else:
+        # will always betray first then randomly decide what to do next
     
+            if len(opponent_history)==0: #It's the first round: betray
+                return 'b'
+            elif random.randint(1,2)==1:
+                return 'b' # 50% chance of choosing backstabber
+            else:
+                return 'c' #50% chance of choosing collude
 
 
 
